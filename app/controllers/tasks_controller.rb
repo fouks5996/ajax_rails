@@ -25,8 +25,17 @@ before_action :authenticate_user!
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to tasks_path
-    flash[:notice] = "Task edited"
+
+    if params["checkbox-#{@task.id}"].nil?
+      @task.update(status: false)
+    else
+      @task.update(status: true)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to tasks_path }
+      format.js { }
+    end
   end
 
   def index
@@ -36,7 +45,10 @@ before_action :authenticate_user!
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
+    end
   end
 
 

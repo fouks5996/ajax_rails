@@ -7,12 +7,13 @@
   <div class="card">
     <ul id="task-list-<%= category.title %>"  >
       <% category.tasks.each do |task|  %>
-      <li>
+      <li id="task-<%= task.id %>">
         <%= task.title  %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>
         <% end %>
         <a href="<%= task_path(task.id)%>" data-method="DELETE" data-remote="true"> TRASH<i class="fa-solid fa-trash-can"></i></a>
+        <%= check_box_tag "checkbox-#{task.id}", 1, task.status, data: { remote: true, url: task_path(task.id), params: { task_id: "task-#{task.id}"}.to_param, method: "put" }%>
       </li>
       <% end %>
     </ul>
