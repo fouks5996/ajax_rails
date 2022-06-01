@@ -1,0 +1,14 @@
+<div class="divChild" id="email-<%= email.id %>" >
+   <p>
+   <strong>Object:</strong>
+   <%= email.object %>
+   </p>
+
+   <p>
+   <strong>Body:</strong>
+   <%= email.body %>
+   </p>
+   <a href="<%= email_path(email)%>" data-method="DELETE" data-remote="true"> TRASH </a>
+   <td><a href="#"> Marquer comme non lu </a></td>
+
+</div>

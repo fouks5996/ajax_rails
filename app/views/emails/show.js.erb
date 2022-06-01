@@ -1,0 +1,8 @@
+
+divParent = document.getElementById("email_show");
+
+var divChild = document.querySelector(".divChild");
+if(divChild) {
+    divChild.parentNode.removeChild(divChild);
+}
+divParent.insertAdjacentHTML("afterend", "<%= j render 'show_email', email: @email %>");

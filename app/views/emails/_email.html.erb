@@ -1,0 +1,7 @@
+<tr id="email2-<%= email.id %>">
+   <td><%= email.body %></td>
+   <td><a href="<%=email_path(email.id)%>" data-method="GET" data-remote="true"   ><%= email.object %></a></td>
+   <td><%= link_to 'Edit', edit_email_path(email) %></td>
+   <td> <a href="<%= email_path(email)%>" data-method="DELETE" data-remote="true"> TRASH </a> </td>
+
+</tr>
