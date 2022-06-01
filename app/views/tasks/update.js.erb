@@ -1,8 +1,9 @@
 if (document.getElementById("checkbox-<%=@task.id%>").checked === true){
-  console.log(<%=@task.status %>);
+   console.log(<%=@task.status %>);
    document.getElementById("task-<%=@task.id %>").style.textDecoration= "line-through";
+   
 
 } else {
-  console.log(<%=@task.status %>);
+   console.log(<%=@task.status %>);
    document.getElementById("task-<%=@task.id %>").style.textDecoration= "none";
 }
