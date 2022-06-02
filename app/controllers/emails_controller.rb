@@ -8,6 +8,9 @@ class EmailsController < ApplicationController
 
   # GET /emails/1 or /emails/1.json
   def show    
+    @email.update(
+      'read' => @email.read
+    )
     respond_to do |format|
       format.html { redirect_to emails_path }
       format.js { }
@@ -43,14 +46,13 @@ class EmailsController < ApplicationController
 
   # PATCH/PUT /emails/1 or /emails/1.json
   def update
+    @email.update(
+      'read' => !@email.read
+    )
+
     respond_to do |format|
-      if @email.update(email_params)
-        format.html { redirect_to email_url(@email), notice: "Email was successfully updated." }
-        format.json { render :show, status: :ok, location: @email }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to root_path }
+      format.js { }
     end
   end
 
