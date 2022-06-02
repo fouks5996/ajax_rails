@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "personal_variables.scss"
+    ],
+    "names": [],
+    "file": "personal_variables.css"
+}
