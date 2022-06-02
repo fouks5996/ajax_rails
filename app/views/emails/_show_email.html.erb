@@ -1,31 +1,16 @@
-<%if email.read == true %>
-   <div class="divChild" id="email-<%= email.id%>" style="background-color:white" >
-      <p>
-      <strong>Object:</strong>
-      <%= email.object %>
-      </p>
-
-      <p>
-      <strong>Body:</strong>
-      <%= email.body %>
-      </p>
-      <a href="<%= email_path(email)%>" data-method="DELETE" data-remote="true"> TRASH </a> <br>
+<div class="divChild" id="email-<%= email.id%>">
+   <p>
+       <strong>Object:</strong> <%= email.object %>
+   </p>
+   <p> 
+      <strong>Body:</strong> <%= email.body %>
+   </p>
+   <a href="<%= email_path(email)%>" data-method="DELETE" data-remote="true"> TRASH </a> <br>
+   <%if email.read == true %>
       <%= check_box_tag "read#{email.id}", 1, email.read, data: { remote: true, url: email_path(email.id), params: { email_id: "email-#{email.id}"}.to_param, method: "put" }%>
       <span id="changeText" >Marquer comme non lu</span>
-   </div>
-<%else%>
-   <div class="divChild" id="email-<%= email.id%>">
-      <p>
-      <strong>Object:</strong>
-      <%= email.object %>
-      </p>
-
-      <p>
-      <strong>Body:</strong>
-      <%= email.body %>
-      </p>
-      <a href="<%= email_path(email)%>" data-method="DELETE" data-remote="true"> TRASH </a> <br>
+   <%else%>
       <%= check_box_tag "read#{email.id}", 1, email.read, data: { remote: true, url: email_path(email.id), params: { email_id: "email-#{email.id}"}.to_param, method: "put" }%>
       <span id="changeText">Marquer comme lu</span>
-   </div>
-<%end%>
+   <%end%>
+</div>

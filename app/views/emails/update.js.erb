@@ -1,9 +1,9 @@
 if (document.getElementById("read<%=@email.id%>").checked === false ){
-   document.getElementById("email-<%= @email.id %>").style.backgroundColor="grey";
-   document.getElementById("changeText").textContent = "marquer comme lu";
+   document.getElementById("email2-<%= @email.id %>").style.backgroundColor="white";
+   document.getElementById("changeText").textContent = "Marquer comme lu";
    
 
 } else {
-   document.getElementById("email-<%= @email.id %>").style.backgroundColor="white";
-   document.getElementById("changeText").textContent = "marquer comme non lu";
+   document.getElementById("email2-<%= @email.id %>").style.backgroundColor="grey";
+   document.getElementById("changeText").textContent = "Marquer comme non lu";
 }
